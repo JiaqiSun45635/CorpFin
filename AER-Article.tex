@@ -1,0 +1,349 @@
+% AER-Article.tex for AEA last revised 22 June 2011
+\documentclass[AER]{AEA}
+\usepackage{siunitx}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{adjustbox}
+\usepackage{caption}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{lastpage}
+\usepackage{tabularx}
+\usepackage{pdflscape}
+\usepackage{fancyhdr} 
+\usepackage{array,  ragged2e,  booktabs}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{verbatim}
+\usepackage{threeparttable}
+\usepackage{titlesec}
+\usepackage{indentfirst}
+\titlespacing*{\section}{0pt}{0.1\baselineskip}{0.2\baselineskip}
+\titlespacing*{\subsection}{0pt}{0.1\baselineskip}{0.2\baselineskip}
+\restylefloat{table}
+
+\fancypagestyle{mylandscape}{
+\fancyhf{} %Clears the header/footer
+\fancyfoot[C]{% Footer
+\makebox[\textwidth][r]{% Right
+  \rlap{\hspace{.75cm}% Push out of margin by \footskip
+    \smash{% Remove vertical height
+      \raisebox{4.87in}{% Raise vertically
+        \rotatebox{90}{\thepage\ of \pageref{LastPage}}}}}}}% Rotate counter-clockwise
+\renewcommand{\headrulewidth}{0pt}% No header rule
+\renewcommand{\footrulewidth}{0pt}% No footer rule
+}
+\renewcommand{\footnoterule}{%
+  \kern -3pt
+  \hrule width \textwidth height 1pt
+  \kern 2pt
+}
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\newcolumntype{M}{>{\centering\arraybackslash}m{6.1cm}}
+
+\usepackage{csquotes}% Recommended
+
+\usepackage[style=authoryear-ibid,backend=biber]{biblatex}
+
+\addbibresource{citation.bib}
+
+%%%%%% NOTE FROM OVERLEAF: The mathtime package is no longer publicly available nor distributed. We recommend using a different font package e.g. mathptmx if you'd like to use a Times font.
+% \usepackage{mathptmx}
+
+% Note that miktex, by default, configures the mathtime package to use commercial fonts
+% which you may not have. If you would like to use mathtime but you are seeing error
+% messages about missing fonts (mtex.pfb, mtsy.pfb, or rmtmi.pfb) then please see
+% the technical support document at http://www.aeaweb.org/templates/technical_support.pdf
+% for instructions on fixing this problem.
+
+% Note: you may use either harvard or natbib (but not both) to provide a wider
+% variety of citation commands than latex supports natively. See below.
+
+% Uncomment the next line to use the natbib package with bibtex 
+\usepackage{natbib}
+
+% Uncomment the next line to use the harvard package with bibtex
+%\usepackage[abbr]{harvard}
+
+\title{}
+
+\begin{document}
+\setstretch{2}
+\thispagestyle{empty}
+    \vspace*{\fill}
+        \begin{spacing}{1.5}
+        \begin{center}
+        \Huge
+        
+        \vspace{1.5cm}
+            
+        \huge
+        Word Limit: / 1250 words (or 5 pages)
+        \end{center}
+        \end{spacing}
+        \vspace*{\fill}
+\newpage
+
+\pagestyle{fancy}
+
+\setcounter{page}{1}
+
+\begin{spacing}{1.5}
+
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+\section{Introduction}
+
+This analysis estimates the divisional and consolidated costs of capital for Midland Energy Resources. Midland operates across three divisions with distinct business models, profitability profiles, target leverage ratios, credit ratings, and market correlations. Separate cost of capital calculations are necessary, based on division-specific parameters.
+
+\section{WACC Assumptions}
+
+We employ the weighted average cost of capital (WACC) formula to estimate cost of capital: $r_{W\!ACC}=r_d\left(\frac{D}{V}\right)(1-\tau)+r_e\left(\frac{E}{V}\right)$. $D$, $E$, and $V$ represent market values of debt, equity, and total firm value, respectively. Midland’s divisions adhere to long-term target debt ratios, satisfying the constant leverage ratio assumption, and we assume constant expected growth to ensure constant cost of capital, thus fulfilling all WACC assumptions.
+
+\section{Cost of Debt}
+
+The cost of debt is estimated as $r_d=r_f + \beta_D(EM\!RP) = r_f+spread$.  Using a 10-year Treasury rate of 4.66\% as $r_f$, we align with Midland’s investment horizons on typical projects such as plant and equipment investments, and is short enough for the constant debt ratio assumption to hold true. The rate's frequent trading ensures its proximity to market value. \textbf{Table 1} summarizes divisional and firm-wide costs of debt.
+
+Leverage provides a tax shield. We assume a uniform tax rate across divisions, as they operate within a similar jurisdiction and industry. We use Midland’s 2006 operating results to calculate the most recent and relevant tax rate estimates.
+
+\section{Cost of Equity}
+
+The cost of equity is derived using the Capital Asset Pricing Model (CAPM):\begin{equation}
+    r_e=r_f+\beta(EMRP)
+\end{equation} This model assumes mean-variance preference, a single investment horizon, homogeneous expectations, and market efficiency. The following inputs are used:
+
+\begin{itemize}
+    \item Risk-free rate: The 10-year Treasury rate of 4.66\%.
+    \item Beta: Firm-wide equity beta is provided at 1.25. Betas for Exploration \& Production (E\&P) and Refining \& Marketing (R\&M) are calculated using comparables (Exhibit 5). We lack comparable data for Petrochemicals and employ three estimating approaches detailed below.
+    \item Equity Market Risk Premium (EMRP): We use a 6\% EMRP based on market returns from 1987–2006. Using longer time periods may incorporate structural shifts, such as the 1987 Black Monday event, that may distort the estimate. Implications of this assumption will be addressed later.
+\end{itemize}
+
+\textbf{Table 1} summarises case data and assumptions.
+
+\subsection{Weighted Sum Approaches}
+
+\subsubsection{1. Risk-free Debt Assumption}
+
+Under constant debt ratios, $\beta_U =\beta_L$. Hence, \begin{equation}
+    \beta_U =\beta_L= (1-L)\beta_E+L\beta_D\label{eq:1}
+\end{equation}, where $L$ represents the leverage ratio and $\beta_E$ the equity beta. 
+
+Since Midland's debt is considered low-risk due to its investment-grade credit rating, we initially assume a debt beta of zero ($\beta_D = 0$) for both Midland and its comparable companies.
+
+We use comparable companies' equity beta (Exhibit 5) to estimate equity betas for E\&P and R\&M. Since capital structures vary across companies, we first calculate the unlevered equity beta for each comparable company by removing the effects of leverage; then re-lever the average of comparable unlevered betas based on Midland's target capital structure to derive the divisional equity betas (\textbf{Table 2}).
+
+Midland's firm-wide target $L = 42.2\%$ and $\beta_L =  1.25$ yields an unlevered firm-wide equity beta of 0.72, the weighted sum of divisional betas. Divisional weights are based on after-tax earnings. As divisions have different profitability and operational leverage, after-tax earnings better reflect each division's contribution to shareholder equity compared to revenue or asset-based weightings. We back out the Petrochemical levered equity beta from the weighted sum.
+
+However, this approach results in a negative equity beta and an unrealistically low cost of equity (0.07\%) for Petrochemicals (\textbf{Table 2}). This contradicts expectations, as equity - being subordinate in the capital structure - should command a higher return than debt. The cyclical nature of the petrochemical industry further contradicts this result \parencite[]{Park_Huang_Hsu_Kim_Nagashima_2024}.
+
+\subsubsection{2. Risky Debt Assumption - Midland Only}\label{final}
+
+We now assume $\beta_D>0$ for Midland, whereas the debt of comparable companies is risk-free ($\beta_D=0$) since we lack data on their debt betas. Midland's divisional leverage ratios (E\&P: 46.0\%, R\&M: 31.0\%) exceed those of comparables (E\&P: 25.4\%, R\&M: 14.9\%), indicating higher debt risk for Midland.
+
+To estimate Midland's debt beta, we apply CAPM, assuming cost of debt is solely influenced by the risk-free rate, the sensitivity of debt returns to market movements, and the market risk premium, with credit risk and default risk excluded from consideration. The debt beta is estimated as $\beta_D=\frac{\text{Expected Return on Debt}-r_f}{\text{Equity Market Risk Premium}}$. 
+
+The $r_d$ from \textbf{Table 1} proxies the expected return on debt, assuming market equilibrium where the expected return equals the required return. We retain a 6\% EMRP, as CAPM assumes a uniform risk premium across asset classes. \textbf{Table 3} summarizes debt beta and revised costs of equity.
+
+\subsection{Industry Comparable Approach}
+
+As an alternative approach, we proxy the Petrochemical unlevered beta using a historical unlevered Chemicals industry equity beta of 0.83 from \textcite[]{Damodaran_2024}. Restoring the assumption of risk-free debt for all and using equation (\ref{eq:1}), we derive a levered equity beta of 1.38 for Petrochemicals, which is significantly higher than previous estimates. We note that selecting this estimate contradicts our prior assumption that a firm’s beta should be the weighted sum of its divisional betas.
+
+\section{Final WACC Calculation}
+
+For the final WACC calculation, we assume risky debt for Midland and risk-free debt for comparable companies (\ref{final} 2.). Table 4 provides final results consistent with the cyclical nature of Midland’s industries, where $r_e>r_d$.
+
+\section{Sensitivity Analysis} \label{sensitivity}
+
+The constant ratio WACC assumes that firms fix the debt amount for the next period at $LV_{t+1}$. This is unrealistic, since $V_{t+1}$ is unknown at date $t$. The Miles-Ezzell WACC relaxes this assumption, fixing the debt ratio over the period based on market values known at date $t$:\begin{equation}
+    r_{W\!ACC\colon ME}=r_u-\tau r_dL\frac{1+r_U}{1+r_D}
+\end{equation} \textbf{Table 5} shows ME-WACC is approximately 1\% lower than WACC, a seemingly small difference which can have significant impacts on valuations over long investment horizons.
+
+Our WACC calculations rely on the accurate estimates of parameters, such as $r_f$ and $EMRP$. \textbf{Table 6} shows that the the cost of capital estimates are highly sensitive to changes in $r_f$ and $EMRP$, ranging from 6.38\% to 10.95\%. Nevertheless, we are confident in our estimates as the selected treasury yield aligns with the typical investment horizons of the firm's projects and supports the constant debt ratio assumption. Although the EMRP of 6\% is in line with 20-year market returns, it is higher than the estimate used previously by the firm — a more conservative valuation for manager evaluations and project appraisals.
+
+Lastly, we analyze the impact of higher market risks (captured in debt beta and EMRP) on the consolidated WACC to quantify downside risks. The results are summarized in \textbf{Table 7}.
+
+\section{Conclusion}
+
+This report estimates the firm-wide cost of capital at 8.66%. The divisional costs of capital are 8.59%, 9.74%, and 7.07% for E&P, R&M, and Petrochemicals, respectively.
+
+It is important to highlight that hurdle rates should differ between ex-ante and ex-post evaluations. The WACC presented here is based on forecasts of long-term leverage ratios, market values of debt and equity, and estimated costs of equity and debt. For ex-post evaluations, managers should first verify whether the leverage ratio remained constant, as this affects the validity of the WACC estimate. Actual leverage ratios and realized costs of equity and debt should replace forecasts for ex-post assessments, as actual costs often deviate from initial estimates. Using realized data provides a more accurate reflection of project performance.
+
+\printbibliography
+
+\section{Appendix}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \multicolumn{7}{l}{\textbf{Table 1: Summary of information given and assumptions made}}\\
+    \hline
+    & $r_f$ & Spread & $r_d$ & $L$ & $\tau$ & EMRP\\
+     \hline
+    Exploration \& Production & 4.66\% & 1.60\% & 6.26\% & 46.0\% & 38.58\% &  6.0\% \\
+    \hline
+    Refining \& Marketing & 4.66\% & 1.80\% & 6.46\% & 31.0\% & 38.58\% &  6.0\% \\
+    \hline
+    Petrochemicals & 4.66\% & 1.35\% & 6.01\% & 40.0\% & 38.58\% &  6.0\% \\
+    \hline
+    Consolidated & 4.66\% & 1.62\% & 6.28\% & 42.2\% & 38.58\% &  6.0\% \\
+    \hline
+    \end{tabular}
+    \begin{tablenotes}
+    \item Note 1: [Insert Table Note]
+    \item Note 2: [Insert Table Note]
+    \end{tablenotes}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \multicolumn{6}{l}{\textbf{Table 2: Results based on risk-free debt assumption}}\\
+    \hline
+     & Unlevered $\beta$ & $w$ & $L$ & Levered $\beta$ & $r_e$\\
+     \hline
+    Exploration \& Production & 0.84 & 67.1\% & 46.0\% & 1.55 & 13.99\% \\
+    \hline
+    Refining \& Marketing & 0.98 & 21.6\% & 31.0\% & 1.41 & 13.14\% \\
+    \hline
+    Petrochemicals & -0.46 & 11.2\% & 40.0\% & -0.77 & 1.52\% \\
+    \hline
+    Consolidated & 0.72 & 100.0\% & 42.2\% & 1.25 & 12.17\% \\
+    \hline
+    \end{tabular}
+    \begin{tablenotes}
+    \item Note 1: When $\beta_D=0$, equation \ref{eq:1} can be written as $\beta_U=(1-L)\beta_E\implies \beta_E=\frac{\beta_U}{(1-L)}$, which allows us to unlever and relever equity betas.
+    \item Note 2: [Insert Table Note]
+    \end{tablenotes}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \multicolumn{7}{l}{\textbf{Table 3: Results based on risky debt assumption - Midland only}}\\
+    \hline
+     & Unlevered $\beta$ & $w$ & Debt $\beta$ & $L$ & Levered $\beta$ & $r_e$\\
+     \hline
+    Exploration \& Production & 0.84 & 67.1\% & 0.27 & 46.0\% & 1.33 & 12.63\% \\
+    \hline
+    Refining \& Marketing & 0.98 & 21.6\% & 0.30 & 31.0\% & 1.28 & 12.33\% \\
+    \hline
+    Petrochemicals & 0.56 & 11.2\% & 0.23 & 40.0\% & 0.78 & 9.33\% \\
+    \hline
+    Consolidated & 0.84 & 100.0\% & 0.27 & 42.2\% & 1.25 & 12.17\% \\
+    \hline
+    \end{tabular}
+    \begin{tablenotes}
+    \item Note 1: [Insert Table Note]
+    \item Note 2: [Insert Table Note]
+    \end{tablenotes}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \multicolumn{4}{l}{\textbf{Table 4: Summary of results across approaches}}\\
+    \hline
+    \multirow{2}{*}{} & \multicolumn{3}{|c|}{Levered $\beta$} \\
+    \cline{2-4}
+     & Approach 1 & Approach 2 & Approach 3 \\
+     \hline
+    Exploration \& Production & 1.55 & 1.33 & 1.45 \\
+    \hline
+    Refining \& Marketing & 1.41 & 1.28 & 1.34 \\
+    \hline
+    Petrochemicals & -0.77 & 0.78 & -0.04 \\
+    \hline
+    Consolidated & 1.25 & 1.25 & 1.25 \\
+    \hline
+    \end{tabular}
+    \begin{tablenotes}
+    \item Note 1: [Insert Table Note]
+    \item Note 2: [Insert Table Note]
+    \end{tablenotes}
+\end{table}
+
+\begin{table}[h!]
+    \resizebox{\textwidth}{!}{
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \multicolumn{9}{l}{\textbf{Table 5: Final WACC calculation based on chosen approach}}\\
+    \hline
+     & $r_f$ & $t$ & $r_d$ & $L$ & $EMRP$ & $\beta$ & $r_e$ & WACC \\
+     \hline
+    Exploration \& Production & 4.66\% & 38.58\% & 6.26\% & 46.00\% & 6.00\% & 1.33 & 12.63\% & 8.59\% \\
+    \hline
+    Refining \& Marketing & 4.66\% & 38.58\% & 6.46\% & 31.00\% & 6.00\% & 1.28 & 12.33\% & 9.74\% \\
+    \hline
+    Petrochemicals & 4.66\% & 38.58\% & 6.01\% & 40.00\% & 6.00\% & 0.78 & 9.33\% & 7.07\% \\
+    \hline
+    Consolidated & 4.66\% & 38.58\% & 6.28\% & 42.20\% & 6.00\% & 1.25 & 12.17\% & 8.66\% \\
+    \hline
+    \end{tabular}
+    }
+    \begin{tablenotes}
+    \item Note 1: [Insert Table Note]
+    \item Note 2: [Insert Table Note]
+    \end{tablenotes}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \multicolumn{6}{l}{\textbf{Table 6: ME:WACC calculation}}\\
+    \hline
+    & $r_{WACC}$ & $t$ & $L$ & $r_d$ & $r_{ME:WACC}$ \\ \hline
+    Exploration \& Production & 8.59\% & 38.58\% & 46.00\% & 6.26\% & 7.45\% \\ \hline
+    Refining \& Marketing & 9.74\% & 38.58\% & 31.00\% & 6.46\% & 8.94\% \\ \hline
+    Petrochemicals & 7.07\% & 38.58\% & 40.00\% & 6.01\% & 6.14\% \\ \hline
+    Consolidated & 8.66\% & 38.58\% & 42.20\% & 6.28\% & 7.62\% \\ \hline
+    \end{tabular}
+    \begin{tablenotes}
+    \item Note 1: [Insert Table Note]
+    \item Note 2: [Insert Table Note]
+    \end{tablenotes}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \multicolumn{7}{l}{\textbf{Table 7: Sensitivity analysis of EMRP and $r_f$}}\\
+    \hline
+    \multicolumn{2}{|c|}{\multirow{2}{*}{WACC Consolidated}} & \multicolumn{5}{c|}{EMRP} \\ 
+    \cline{3-7}
+    \multicolumn{2}{|c|}{} & 4.0\% & 5.0\% & \textbf{6.0\%} & 7.0\% & 8.0\% \\ 
+    \hline
+    \multirow{5}{*}{Risk-free rate} & 3.66\% & 6.38\% & 7.10\% & 7.82\% & 8.55\% & 9.27\% \\ \cline{2-7}
+    & 4.16\% & 6.80\% & \cellcolor{gray!25} \textbf{7.52\%} & \cellcolor{gray!25} \textbf{8.24\%} & \cellcolor{gray!25} \textbf{8.97\%} & 9.69\% \\ \cline{2-7}
+    & \textbf{4.66\%} & 7.21\% & \cellcolor{gray!25} \textbf{7.94\%} & \cellcolor{gray!50} \textbf{8.66\%} & \cellcolor{gray!25} \textbf{9.38\%} & 10.11\% \\ \cline{2-7}
+    & 5.16\% & 7.63\% & \cellcolor{gray!25} \textbf{8.36\%} & \cellcolor{gray!25} \textbf{9.08\%} & \cellcolor{gray!25} \textbf{9.80\%} & 10.53\% \\ \cline{2-7}
+    & 5.66\% & 8.05\% & 8.78\% & 9.50\% & 10.22\% & 10.95\% \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \multicolumn{7}{l}{\textbf{Table 8: Sensitivity analysis of EMRP and debt beta}}\\
+    \hline
+    \multicolumn{2}{|c|}{\multirow{2}{*}{WACC Consolidated}} & \multicolumn{5}{c|}{EMRP} \\ 
+    \cline{3-7}
+    \multicolumn{2}{|c|}{} & 4.0\% & 5.0\% & \textbf{6.0\%} & 7.0\% & 8.0\% \\ 
+    \hline
+    \multirow{5}{*}{Debt $\beta$ Consolidated} 
+    & 0.17 & 7.06\% & 7.78\% & 8.51\% & 9.23\% & 9.95\% \\ \cline{2-7}
+    & 0.22 & 7.14\% & \cellcolor{gray!25} \textbf{7.86\%} & \cellcolor{gray!25} \textbf{8.58\%} & \cellcolor{gray!25} \textbf{9.31\%} & 10.03\% \\ \cline{2-7}
+    & \textbf{0.27} & 7.21\% & \cellcolor{gray!25} \textbf{7.94\%} & \cellcolor{gray!50} \textbf{8.66\%} & \cellcolor{gray!25} \textbf{9.38\%} & 10.11\% \\ \cline{2-7}
+    & 0.32 & 7.29\% & \cellcolor{gray!25} \textbf{8.02\%} & \cellcolor{gray!25} \textbf{8.74\%} & \cellcolor{gray!25} \textbf{9.46\%} & 10.19\% \\ \cline{2-7}
+    & 0.37 & 7.37\% & 8.09\% & 8.82\% & 9.54\% & 10.26\% \\ \hline
+    \end{tabular}
+\end{table}
+
+\end{spacing}
+\end{document}
+
